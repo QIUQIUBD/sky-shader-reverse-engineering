@@ -1,0 +1,3 @@
+# Python analysis tools run on stdlib only.
+# The following are used for CI linting and optional workflows:
+Django>=4.2,<6.0
