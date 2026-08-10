@@ -1,0 +1,156 @@
+resource "Shader" "AncestorEngine" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 64, toolExport = true, defines="BAKED SELF_LIT DECAL COLOR_UNIFORM" }
+resource "Shader" "Beacon" { group = "Blended", vs = "Beacon.vert", fs = "Beacon.frag", instanceLimit = 1, toolExport = false, defines="VIEWPROJ" }
+resource "Shader" "BirdFlock" { group = "AlphaTestOpaque", vs = "Bird.vert", fs = "Bird.frag", instanceLimit = 1, toolExport = false }
+resource "Shader" "BloomDown" { vs = "Bloom.vert", fs = "Bloom.frag", instanceLimit = 16, defines = "DOWN" }
+resource "Shader" "BloomDownFirst" { vs = "Bloom.vert", fs = "Bloom.frag", instanceLimit = 16, defines = "DOWN FIRST_PASS" }
+resource "Shader" "BloomUp" { vs = "Bloom.vert", fs = "Bloom.frag", instanceLimit = 16, defines = "UP" }
+resource "Shader" "BloomUpLast" { vs = "Bloom.vert", fs = "Bloom.frag", instanceLimit = 16, defines = "UP LAST_PASS" }
+resource "Shader" "Bub" { group = "Blended", vs = "Bub.vert", fs = "Bub.frag", instanceLimit = 1 }
+resource "Shader" "Candle" { group = "Opaque", vs = "Candle.vert", fs = "Candle.frag", instanceLimit = 1, toolExport = false, defines="" }
+resource "Shader" "CandleAura" { group = "BlendedBackground", vs = "CandleAura.vert", fs = "CandleAura.frag", instanceLimit = 1, toolExport = false, defines="VIEWPROJ CANDLE" }
+resource "Shader" "Cham" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 128, toolExport = true, defines = "DAZZLECHAM SELF_LIT CHAMTIME" }
+resource "Shader" "ChamAlpha" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 16, toolExport = true, defines = "DAZZLECHAM SELF_LIT CHAMTIME DECAL" }
+resource "Shader" "ChamAlphaDepth" { group = "BlendedWithBackfaces", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 16, toolExport = true, defines = "DAZZLECHAM SELF_LIT CHAMTIME ALPHA" }
+resource "Shader" "ChamAlphaSdf" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 16, toolExport = true, defines = "DAZZLECHAM SELF_LIT CHAMTIME DECAL SDF" }
+resource "Shader" "ChamShAlpha" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 16, toolExport = true, defines = "DAZZLECHAM SELF_LIT CHAMTIME DECAL BAKED" }
+resource "Shader" "CircleMotionGraphics" { vs = "Sprite.vert", fs = "CircleMotionGraphics.frag", instanceLimit = 64, defines="HIGHRES FRAMEBUFFER" }
+resource "Shader" "CloudCard" { group = "Cloud", vs = "CloudCard.vert", fs = "CloudCard.frag", instanceLimit = 16 }
+resource "Shader" "CloudCore" { group = "Opaque", vs = "CloudCore.vert", fs = "CloudCore.frag", instanceLimit = 1 }
+resource "Shader" "CloudFluffy" { vs = "CloudFluffy.vert", fs = "CloudFluffy.frag", instanceLimit = 1 }
+resource "Shader" "CloudFluffyCoarse" { vs = "CloudFluffy.vert", fs = "CloudFluffy.frag", instanceLimit = 1, defines="COARSE" }
+resource "Shader" "CloudFluffySuperCoarse" { vs = "CloudFluffy.vert", fs = "CloudFluffy.frag", instanceLimit = 1, defines="SUPER_COARSE" }
+resource "Shader" "CloudQuadDiamond" { group = "Opaque", vs = "FlatCloud.vert", fs = "FlatCloud.frag", instanceLimit = 4, defines="DIAMOND" }
+resource "Shader" "CloudQuadDiamondMotion" { vs = "FlatCloud.vert", fs = "MotionGen.frag", instanceLimit = 4, defines="DIAMOND MESH MOTION" }
+resource "Shader" "CloudQuadFast" { group = "Blended", vs = "FlatCloud.vert", fs = "FlatCloud.frag", instanceLimit = 4 }
+resource "Shader" "CloudQuadFluffy" { group = "Blended", vs = "FlatCloud.vert", fs = "FlatCloud.frag", instanceLimit = 4, defines="HALF_RES SOFT_PARTICLES FLUFFY MINIMAL" }
+resource "Shader" "CloudQuadParticleFluffy" { group = "Cloud", vs = "FlatCloud.vert", fs = "FlatCloud.frag", instanceLimit = 4, defines="HALF_RES SOFT_PARTICLES FLUFFY" }
+resource "Shader" "CloudQuadSoftFast" { group = "Blended", vs = "FlatCloud.vert", fs = "FlatCloud.frag", instanceLimit = 4, defines="SOFT_PARTICLES" }
+resource "Shader" "CloudSh" { group = "Opaque", vs = "CloudSh.vert", fs = "CloudSh.frag", instanceLimit = 16 }
+resource "Shader" "CloudShAlpha" { group = "Decal", vs = "CloudSh.vert", fs = "CloudSh.frag", instanceLimit = 16, defines="DECAL" }
+resource "Shader" "CloudShAlphaSkirt" { group = "Skirt", vs = "CloudSh.vert", fs = "CloudSh.frag", instanceLimit = 64, defines="DECAL SKIRT" }
+resource "Shader" "CloudShMesh" { group = "Opaque", vs = "CloudSh.vert", fs = "CloudSh.frag", instanceLimit = 16, defines="MESH" }
+resource "Shader" "ColorSprite" { vs = "Sprite.vert", fs = "Sprite.frag", instanceLimit = 1024, defines="COLOR_TEX" }
+resource "Shader" "ColorSprite3d" { vs = "Sprite.vert", fs = "Sprite.frag", instanceLimit = 1024, defines="COLOR_TEX VIEWPROJ" }
+resource "Shader" "ColorSpriteFramebuffer" { vs = "Sprite.vert", fs = "Sprite.frag", instanceLimit = 1024, defines="COLOR_TEX FRAMEBUFFER" }
+resource "Shader" "ColorSpriteHighRes3d" { vs = "Sprite.vert", fs = "Sprite.frag", instanceLimit = 1024, defines="COLOR_TEX VIEWPROJ HIGHRES FRAMEBUFFER SCENE_TO_HUD_SCALE" }
+resource "Shader" "Constellation" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 16, toolExport = true, defines = "DAZZLECHAM PULSE CONSTELLATION SELF_LIT CHAMTIME DECAL" }
+resource "Shader" "Creature" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 144, toolExport = true, defines="SH_UNIFORM CREATURE" }
+resource "Shader" "DarkStone" { group = "Opaque", vs = "DarkStone.vert", fs = "DarkStone.frag", instanceLimit = 256, toolExport = true, defines="" }
+resource "Shader" "DarkstoneRain" { group = "Opaque", vs = "DarkstoneRain.vert", fs = "DarkstoneRain.frag", instanceLimit = 1, toolExport = false }
+resource "Shader" "DarkstoneRainMotion" { group = "Motion", vs = "DarkstoneRain.vert", fs = "MotionGen.frag", instanceLimit = 1, toolExport = false, defines="MOTION_VEC MESH" }
+resource "Shader" "DazzleCham" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 64, toolExport = true, defines = "DAZZLECHAM SELF_LIT" }
+resource "Shader" "DazzleChamAlpha" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 32, toolExport = true, defines = "DAZZLECHAM DECAL SELF_LIT" }
+resource "Shader" "DepthDownsample" { vs = "Fullscreen.vert", fs = "DepthDownsample.frag", instanceLimit = 1, defines = "TO_HALF" }
+resource "Shader" "DepthDownsampleGather" { vs = "Fullscreen.vert", fs = "DepthDownsample.frag", instanceLimit = 1, defines = "GATHER" }
+resource "Shader" "DepthDownsampleGatherMetal" { source = "DepthDownsample.metal", vs = "vsMain",  fs = "Gather", instanceLimit = 1 }
+resource "Shader" "DepthDownsampleMetal" { source = "DepthDownsample.metal", vs = "vsMain",  fs = "DownsampleToHalf", instanceLimit = 1 }
+resource "Shader" "DepthDownsampleQuarter" { vs = "Fullscreen.vert", fs = "DepthDownsample.frag", instanceLimit = 1, defines = "TO_QUARTER" }
+resource "Shader" "DepthDownsampleQuarterMetal" { source = "DepthDownsample.metal", vs = "vsMain",  fs = "DownsampleToQuarter", instanceLimit = 1 }
+resource "Shader" "DirectionalLighting" { group = "Opaque", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 512, toolExport = true, defines="COLOR_UNIFORM SELF_LIT LIT" }
+resource "Shader" "DirectionalLightingNoUv" { group = "Opaque", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 32, toolExport = true, defines="COLOR_UNIFORM SELF_LIT LIT NO_UV" }
+resource "Shader" "DirectionalLightingRail" { group = "Opaque", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 128, toolExport = true, defines="LIT RAIL_SKIN" }
+resource "Shader" "Flame" { group = "BlendedBackground", vs = "Flame.vert", fs = "Flame.frag", instanceLimit = 1, toolExport = false, defines="VIEWPROJ" }
+resource "Shader" "Flower" { group = "Flowers", vs = "Flower.vert", fs = "Flower.frag", instanceLimit = 32, toolExport = false }
+resource "Shader" "FlowerShadow" { group = "FlowerShadows", vs = "Flower.vert", fs = "Flower.frag", instanceLimit = 32, defines = "SHADOW", toolExport = false }
+resource "Shader" "FogUpsample" { vs = "Reprojection.vert", fs = "FogUpsample.frag", instanceLimit = 1 }
+resource "Shader" "FogUpsampleCheap" { vs = "Reprojection.vert", fs = "FogUpsample.frag", instanceLimit = 1, defines = "CHEAP_FOG" }
+resource "Shader" "FogVolume" { group = "FogVolume", vs = "FogVolume.vert", fs = "FogVolume.frag", instanceLimit = 64, toolExport = true, defines = "" }
+resource "Shader" "Fxaa" { vs = "Fullscreen.vert", fs = "Fxaa.frag", instanceLimit = 1 }
+resource "Shader" "FxaaDisabled" { vs = "Fullscreen.vert", fs = "Fxaa.frag", defines = "DISABLE", instanceLimit = 1 }
+resource "Shader" "GlitterAlpha" { group = "Blended", vs = "Glitter.vert", fs = "Glitter.frag", defines="ALPHA", instanceLimit = 16, toolExport = true }
+resource "Shader" "GlowSprite" { vs = "Sprite.vert", fs = "GlowSprite.frag", instanceLimit = 64, defines="HIGHRES FRAMEBUFFER" }
+resource "Shader" "GrassRainShAlpha" { group = "Decal", vs = "Grass.vert", fs = "Grass.frag", instanceLimit = 16, defines = "GRASS DECAL RAIN", toolExport = false }
+resource "Shader" "GrassRainShAlphaSkirt" { group = "Skirt", vs = "Grass.vert", fs = "Grass.frag", instanceLimit = 64, defines = "GRASS DECAL SKIRT RAIN", toolExport = false }
+resource "Shader" "GrassShAlpha" { group = "Decal", vs = "Grass.vert", fs = "Grass.frag", instanceLimit = 16, defines = "GRASS DECAL", toolExport = false }
+resource "Shader" "GrassShAlphaSkirt" { group = "Skirt", vs = "Grass.vert", fs = "Grass.frag", instanceLimit = 64, defines = "GRASS DECAL SKIRT", toolExport = false }
+resource "Shader" "GrassShMeshAlpha" { group = "Decal", vs = "Grass.vert", fs = "Grass.frag", instanceLimit = 64, defines = "GRASS MESH DECAL", toolExport = false }
+resource "Shader" "HeartAura" { group = "BlendedBackground", vs = "CandleAura.vert", fs = "CandleAura.frag", instanceLimit = 1, toolExport = false, defines="VIEWPROJ HEART" }
+resource "Shader" "HudMask" { vs = "Fullscreen.vert", fs = "HudMask.frag", instanceLimit = 1, toolExport = false }
+resource "Shader" "LensFlareDot" { group = "LensFlare", vs = "LensFlareDot.vert", fs = "LensFlareDot.frag", instanceLimit = 1 }
+resource "Shader" "LensFlareStar" { group = "LensFlare", vs = "LensFlare.vert", fs = "LensFlare.frag", instanceLimit = 1 }
+resource "Shader" "LensFlareSunDog" { group = "LensFlare", vs = "LensFlareSunDog.vert", fs = "LensFlareSunDog.frag", instanceLimit = 1 }
+resource "Shader" "LitAlpha" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 128, toolExport = true, defines="SELF_LIT LIT ALPHA" }
+resource "Shader" "LitAlphaColor" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="SELF_LIT LIT ALPHA COLOR_UNIFORM" }
+resource "Shader" "LitAlphaDual" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="ALPHA SELF_LIT LIT DUAL" }
+resource "Shader" "LitAlphaFading" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="ALPHA SELF_LIT LIT FADING" }
+resource "Shader" "LitAlphaTest" { group = "Opaque", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="SELF_LIT LIT ALPHA_TEST COLOR_UNIFORM" }
+resource "Shader" "Mesh" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 384, toolExport = true, defines="" }
+resource "Shader" "MeshAlpha" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 64, toolExport = true, defines="DECAL" }
+resource "Shader" "MeshCham" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 32, toolExport = true, defines = "CHAM SELF_LIT COLOR_UNIFORM" }
+resource "Shader" "MeshChamSh" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 32, toolExport = true, defines = "CHAM SELF_LIT COLOR_UNIFORM BAKED" }
+resource "Shader" "MeshHeightChamSh" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 32, toolExport = true, defines = "CHAM HEIGHT_CHAM SELF_LIT COLOR_UNIFORM BAKED" }
+resource "Shader" "MeshMagicGlow" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 256, toolExport = true, defines="COLOR_UNIFORM MAGIC_GLOW" }
+resource "Shader" "MeshMotion" { group = "Motion", vs = "MeshMotion.vert", fs = "MotionGen.frag", defines="OLD_POS MESH", instanceLimit = 512 }
+resource "Shader" "MeshRainSh" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 256, toolExport = true, defines="BAKED RAIN" }
+resource "Shader" "MeshRainShAlpha" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 256, toolExport = true, defines="BAKED RAIN DECAL" }
+resource "Shader" "MeshSh" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 256, toolExport = true, defines="BAKED" }
+resource "Shader" "MeshShAlpha" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 64, toolExport = true, defines="BAKED DECAL" }
+resource "Shader" "MeshShAlphaSdf" { group = "Decal", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 64, toolExport = true, defines="BAKED DECAL SDF" }
+resource "Shader" "MeshShSdf" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 64, toolExport = true, defines="BAKED SDF" }
+resource "Shader" "MeshShSl" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 256, toolExport = true, defines="BAKED SELF_LIT COLOR_UNIFORM" }
+resource "Shader" "MeshSl" { group = "Opaque", vs = "Mesh.vert", fs = "Mesh.frag", instanceLimit = 64, toolExport = true, defines="SELF_LIT COLOR_UNIFORM" }
+resource "Shader" "MoteAnim" { group = "Opaque", vs = "Mote.vert", fs = "Mote.frag", instanceLimit = 1, toolExport = false }
+resource "Shader" "MoteMotion" { group = "Motion", vs = "Mote.vert", fs = "MotionGen.frag", instanceLimit = 1, toolExport = false, defines="MOTION_VEC MESH" }
+resource "Shader" "MotionBlur" { vs = "Fullscreen.vert", fs = "MotionBlur.frag", instanceLimit = 1 }
+resource "Shader" "MotionDilate" { vs = "Fullscreen.vert", fs = "MotionDilate.frag", instanceLimit = 1 }
+resource "Shader" "MotionDownsample" { vs = "Fullscreen.vert", fs = "MotionDownsample.frag", instanceLimit = 1 }
+resource "Shader" "MotionGen" { vs = "Reprojection.vert", fs = "MotionGen.frag", instanceLimit = 1 }
+resource "Shader" "MotionGenDisabled" { vs = "Reprojection.vert", fs = "MotionGen.frag", defines = "DISABLED", instanceLimit = 1 }
+resource "Shader" "MovieFrame" { group = "Screenshot", vs = "Resample.vert", fs = "Scanout.frag", instanceLimit = 1, defines = "FRAMEBUFFER SCREENSHOT BGR" }
+resource "Shader" "Ocean" { group = "Ocean", vs = "Ocean.vert", fs = "Ocean.frag", instanceLimit = 2 }
+resource "Shader" "OceanCandle" { group = "Ocean", vs = "Ocean.vert", fs = "Ocean.frag", defines="CANDLE", instanceLimit = 2 }
+resource "Shader" "OceanCloud" { group = "Ocean", vs = "Ocean.vert", fs = "Ocean.frag", defines="CLOUD", instanceLimit = 2 }
+resource "Shader" "OceanDark" { group = "Ocean", vs = "Ocean.vert", fs = "Ocean.frag", instanceLimit = 2, defines="DARK" }
+resource "Shader" "OceanDarkMesh" { group = "Ocean", vs = "Ocean.vert", fs = "Ocean.frag", instanceLimit = 8, toolExport = true, defines="MODEL DARK" }
+resource "Shader" "OceanDarkMeshWet" { group = "Ocean", vs = "Ocean.vert", fs = "Ocean.frag", instanceLimit = 8, toolExport = true, defines="MODEL DARK RAIN" }
+resource "Shader" "OceanMesh" { group = "Ocean", vs = "Ocean.vert", fs = "Ocean.frag", instanceLimit = 8, toolExport = true, defines="MODEL" }
+resource "Shader" "OceanMeshWet" { group = "Ocean", vs = "Ocean.vert", fs = "Ocean.frag", instanceLimit = 8, toolExport = true, defines="MODEL RAIN" }
+resource "Shader" "OceanOrbit" { group = "Ocean", vs = "Ocean.vert", fs = "Ocean.frag", defines="ORBIT", instanceLimit = 2 }
+resource "Shader" "PlayerChest" { group = "Blended", vs = "PlayerChest.vert", fs = "PlayerChest.frag", instanceLimit = 8, defines="HIGHRES FRAMEBUFFER" }
+resource "Shader" "ProjectedCircleZone" { group = "Blended", vs = "Shout.vert", fs = "ProjectedCircleZone.frag", instanceLimit = 32 }
+resource "Shader" "PuddleDrop" { vs = "Sprite.vert", fs = "PuddleSim.frag", instanceLimit = 1, toolExport = false, defines = "INDENT" }
+resource "Shader" "PuddleSim" { vs = "Fullscreen.vert", fs = "PuddleSim.frag", instanceLimit = 1, toolExport = false }
+resource "Shader" "RadicalSprite" { vs = "Sprite.vert", fs = "RadicalSprite.frag", instanceLimit = 40, defines="HIGHRES FRAMEBUFFER" }
+resource "Shader" "RainDrop" { group = "Blended", vs = "RainDrop.vert", fs = "RainDrop.frag", instanceLimit = 1, defines = "" }
+resource "Shader" "Resample" { vs = "Resample.vert", fs = "Resample.frag", instanceLimit = 4 }
+resource "Shader" "Resample" { vs=..., fs=..., instanceLimit=4 }
+resource "Shader" "RockFaceRainShAlpha" { group = "Decal", vs = "Terrain.vert", fs = "RockFace.frag", instanceLimit = 16, defines = "ROCKFACE DECAL RAIN", toolExport = false }
+resource "Shader" "RockFaceRainShAlphaSkirt" { group = "Skirt", vs = "Terrain.vert", fs = "RockFace.frag", instanceLimit = 64, defines = "ROCKFACE DECAL SKIRT RAIN", toolExport = false }
+resource "Shader" "RockFaceShAlpha" { group = "Decal", vs = "Terrain.vert", fs = "RockFace.frag", instanceLimit = 16, defines = "ROCKFACE DECAL", toolExport = false }
+resource "Shader" "RockFaceShAlphaSkirt" { group = "Skirt", vs = "Terrain.vert", fs = "RockFace.frag", instanceLimit = 64, defines = "ROCKFACE DECAL SKIRT", toolExport = false }
+resource "Shader" "RockFaceShMesh" { group = "Opaque", vs = "Terrain.vert", fs = "RockFace.frag", instanceLimit = 128, defines = "ROCKFACE MESH", toolExport = false }
+resource "Shader" "SandShAlpha" { group = "Decal", vs = "Terrain.vert", fs = "Sand.frag", instanceLimit = 16, defines = "SAND DECAL", toolExport = false }
+resource "Shader" "SandShAlphaSkirt" { group = "Skirt", vs = "Terrain.vert", fs = "Sand.frag", instanceLimit = 64, defines = "SAND DECAL SKIRT", toolExport = false }
+resource "Shader" "SandShMeshAlpha" { group = "Decal", vs = "Terrain.vert", fs = "Sand.frag", instanceLimit = 64, defines = "SAND MESH DECAL", toolExport = false }
+resource "Shader" "Scanout" { group = "LensDistortion", vs = "Resample.vert", fs = "Scanout.frag", defines = "FRAMEBUFFER", instanceLimit = 1 }
+resource "Shader" "Screenshot" { group = "Screenshot", vs = "Resample.vert", fs = "Scanout.frag", instanceLimit = 1, defines = "FRAMEBUFFER SCREENSHOT" }
+resource "Shader" "Shout" { group = "BlendedWithBackfaces", vs = "Shout.vert", fs = "Shout.frag", instanceLimit = 32 }
+resource "Shader" "SkyboxCloud" { group = "Skybox", vs = "Skybox.vert", fs = "Skybox.frag", instanceLimit = 128, toolExport = true, defines="CLOUD" }
+resource "Shader" "Sprite" { vs = "Sprite.vert", fs = "Sprite.frag", instanceLimit = 32 }
+resource "Shader" "SpriteFramebuffer" { vs = "Sprite.vert", fs = "Sprite.frag", instanceLimit = 32, defines="FRAMEBUFFER" }
+resource "Shader" "StaticMeshMotion" { group = "Motion", vs = "MeshMotion.vert", fs = "MotionGen.frag", defines="MESH", instanceLimit = 256 }
+resource "Shader" "Sun" { group = "Opaque", vs = "Sun.vert", fs = "Sun.frag", instanceLimit = 1, toolExport = false, defines="" }
+resource "Shader" "Tail" { vs = "Trail.vert", fs = "Trail.frag", defines="TAIL", instanceLimit = 1 }
+resource "Shader" "TemporalAa" { vs = "Fullscreen.vert", fs = "TemporalAa.frag", instanceLimit = 1 }
+resource "Shader" "Tonemap" { vs = "Fullscreen.vert", fs = "Tonemap.frag", instanceLimit = 1 }
+resource "Shader" "TonemapBW" { vs = "Fullscreen.vert", fs = "Tonemap.frag", instanceLimit = 1, defines = "BLACK_WHITE" }
+resource "Shader" "Trail" { group = "Blended", vs = "Trail.vert", fs = "Trail.frag", instanceLimit = 1 }
+resource "Shader" "Unlit" { group = "Opaque", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="" }
+resource "Shader" "UnlitAlpha" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="ALPHA SELF_LIT" }
+resource "Shader" "UnlitAlphaCloudPoint" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, defines="ALPHA SELF_LIT POINT CLOUD_POINT" }
+resource "Shader" "UnlitAlphaColor" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="ALPHA SELF_LIT COLOR_UNIFORM UVSCALE" }
+resource "Shader" "UnlitAlphaDual" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="ALPHA SELF_LIT DUAL" }
+resource "Shader" "UnlitAlphaEvan" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="ALPHA SELF_LIT EVAN" }
+resource "Shader" "UnlitAlphaFading" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="ALPHA SELF_LIT FADING" }
+resource "Shader" "UnlitAlphaPoint" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, defines="ALPHA SELF_LIT POINT" }
+resource "Shader" "UnlitAlphaProjected" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="ALPHA SELF_LIT PROJECTED" }
+resource "Shader" "UnlitAlphaSolid" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, defines="ALPHA SELF_LIT SOLID" }
+resource "Shader" "UnlitAlphaTest" { group = "Opaque", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="SELF_LIT ALPHA_TEST COLOR_UNIFORM" }
+resource "Shader" "UnlitAlphaTestDual" { group = "Opaque", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, toolExport = true, defines="SELF_LIT ALPHA_TEST COLOR_UNIFORM DUAL DUAL_ADD" }
+resource "Shader" "UnlitCloudPoint" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, defines="POINT CLOUD_POINT" }
+resource "Shader" "UnlitColor" { group = "Opaque", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 4, toolExport = true, defines="COLOR_UNIFORM" }
+resource "Shader" "UnlitPoint" { group = "Blended", vs = "DirectionalLighting.vert", fs = "DirectionalLighting.frag", instanceLimit = 64, defines="POINT" }
+resource "Shader" "WaterSim" { vs = "Fullscreen.vert", fs = "WaterSim.frag", instanceLimit = 1, toolExport = false }
+resource "Shader" "WaterSimClear" { source = "WaterSim.metal", cs = "Clear" }
+resource "Shader" "WaterSimComp" { source = "WaterSim.metal", cs = "csMain" }
+resource "Shader" "WaterSimReset" { vs = "Fullscreen.vert", fs = "WaterSimReset.frag", instanceLimit = 1, toolExport = false }
